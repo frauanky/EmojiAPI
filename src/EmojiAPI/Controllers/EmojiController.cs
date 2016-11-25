@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using EmojiAPI.Models;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,11 +12,11 @@ namespace EmojiAPI.Controllers
     [Route("api/[controller]")]
     public class EmojiController : Controller
     {
-        // GET: api/values
+        // GET: api/emoji
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Emoji> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new Emoji[] { new Emoji() { theEmoji = "😀" } , new Emoji() { theEmoji = "😀" } };
         }
 
         // GET api/values/5
