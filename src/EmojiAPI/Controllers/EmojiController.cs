@@ -12,36 +12,40 @@ namespace EmojiAPI.Controllers
     [Route("api/[controller]")]
     public class EmojiController : Controller
     {
+        static EmojiLib lib = new EmojiLib();
+
         // GET: api/emoji
         [HttpGet]
-        public IEnumerable<Emoji> Get()
+        public IActionResult Get()
         {
-            return new Emoji[] { new Emoji() { theEmoji = "😀" } , new Emoji() { theEmoji = "😀" } };
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
+            return new OkObjectResult(lib.Emojis);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IActionResult Post([FromBody]string value)
         {
+            var test = value;
+            return new OkObjectResult(new Emoji() { theEmoji = "😀" });
         }
+
+        //// GET api/values/5
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody]string value)
+        //{
+        //}
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }
