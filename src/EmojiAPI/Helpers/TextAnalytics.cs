@@ -19,7 +19,7 @@ namespace EmojiAPI.Helpers
             var parametersToAdd = new Dictionary<string, string> { { "text", text } };
 
             // Request headers
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "47d009366e0b41c18beef738008b7b24");
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("TEXTANALYTICS_KEY"));
 
             var uri = QueryHelpers.AddQueryString("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment", parametersToAdd);
             //var uri = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment";
