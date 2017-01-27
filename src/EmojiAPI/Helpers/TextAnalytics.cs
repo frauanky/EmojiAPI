@@ -21,8 +21,6 @@ namespace EmojiAPI.Helpers
             // Request headers
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", Environment.GetEnvironmentVariable("TEXTANALYTICS_KEY"));
 
-            Console.WriteLine(client.DefaultRequestHeaders.ToString());
-
             var uri = QueryHelpers.AddQueryString("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment", parametersToAdd);
             //var uri = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment";
             HttpResponseMessage response;
