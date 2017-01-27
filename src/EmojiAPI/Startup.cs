@@ -37,7 +37,8 @@ namespace EmojiAPI
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseMvc();
+            //app.UseMvc();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EmojiAPI.Models;
+using EmojiAPI.Helpers;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,28 +22,29 @@ namespace EmojiAPI.Controllers
             return new OkObjectResult(lib.Emojis);
         }
 
-        // POST api/values
+        // POST api/emoji
         [HttpPost]
-        public IActionResult Post([FromBody]string value)
+        public async Task<IActionResult> Post([FromBody]string value)
         {
-            var test = value;
-            return new OkObjectResult(new Emoji() { theEmoji = "😀" });
+            var ta = new TextAnalytics();
+            var prop = await ta.MakeRequestAsync(value);
+            return new OkObjectResult(lib.getEmojiForSentiment(prop));
         }
 
-        //// GET api/values/5
+        //// GET api/emoji/5
         //[HttpGet("{id}")]
         //public string Get(int id)
         //{
         //    return "value";
         //}
 
-        // PUT api/values/5
+        // PUT api/emoji/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody]string value)
         //{
         //}
 
-        // DELETE api/values/5
+        // DELETE api/emoji/5
         //[HttpDelete("{id}")]
         //public void Delete(int id)
         //{
