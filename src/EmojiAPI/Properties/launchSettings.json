@@ -22,7 +22,7 @@
       "launchBrowser": true,
       "launchUrl": "http://localhost:5000/api/emoji",
       "environmentVariables": {
-        "TEXTANALYTICS_KEY": "xxxx",
+        "TEXTANALYTICS_KEY": "Enter text analytics key here.",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
